@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pinballprueba;
+package pinball;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -21,7 +21,7 @@ frame.setResizable(false);
 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-PinballPrueba panel = new PinballPrueba();
+Pinball panel = new Pinball();
    
 
 frame.add(panel);

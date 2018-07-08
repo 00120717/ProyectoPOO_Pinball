@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pinballprueba;
+package pinball;
 
 /**
  *
@@ -14,7 +14,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class PinballPrueba extends JPanel {
+public class Pinball extends JPanel {
 	Timer t = new Timer(1, new Listener());
 	int ctr = 0;
 	double G = 0.1; //Gravedad
@@ -64,7 +64,7 @@ public class PinballPrueba extends JPanel {
 	};
 	int lines[][] = new int[100][5];
 	
-	public PinballPrueba(){
+	public Pinball(){
 		super();
 		t.start();
                 
