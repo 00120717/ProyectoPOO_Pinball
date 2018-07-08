@@ -197,7 +197,7 @@ public class Pinball extends JPanel {
 		g.setColor(Color.CYAN); // color cuadrito
 		
 		g.fillRect(xpos - 5, (int)sd + 10, 10, 20);
-		stars=points/500;
+		stars=points/1000;
 		g.drawString("PUNTAJE: " + points , 650, 250);
 		g.drawString("VIDAS: " +  lives, 650, 300);
                 g.drawString("ESTRELLAS: " +  stars, 650, 350);
@@ -228,6 +228,18 @@ public class Pinball extends JPanel {
 			}
 		}
 	}
+
+    public int getPoints() {
+        return points;
+    }
+
+    public int getLives() {
+        return lives;
+    }
+
+    public int getStars() {
+        return stars;
+    }
         
         
         
