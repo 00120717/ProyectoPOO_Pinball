@@ -25,7 +25,7 @@ public class Pinball extends JPanel {
 	double[] v2d = {0, 0};
 	
 	int points = 0;
-	int lives = 0;
+	int lives = 4;
 	int sides = 13;
 	int stars = 0;
 	double snorm = 400;
@@ -117,7 +117,7 @@ public class Pinball extends JPanel {
 			p2d[1] = 200;
 			v2d[0] = 0;
 			v2d[1] = 0;
-			lives++;
+			lives--;
 		}
 		if(p2d[0] == 570 && p2d[1] > sd){
 			p2d[1] = sd;

@@ -5,6 +5,7 @@
  */
 package pinball;
 
+import static java.awt.image.ImageObserver.ABORT;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 public class main
@@ -25,8 +26,12 @@ Pinball panel = new Pinball();
    
 
 frame.add(panel);
-
-
-   frame.setVisible(true);
+  while(panel.getLives()>0){
+      frame.setVisible(true);
+  }
+  if(panel.getLives()==0){
+		System.exit(ABORT);
+    } 
     }
+
 }
