@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -105,6 +106,32 @@ public class JugadorDao extends BaseDao<Jugador>{
 
     public List<Jugador> findByNombre(Jugador j) {
         return findBy(j, table.fields[0]);
+    }
+    
+    
+    
+    
+    public ResultSet findTop(){
+        Connection con = null;
+        ResultSet rs = null;
+
+        try {
+             con = this.con.getCon();
+             Statement statement = con.createStatement();
+             ResultSet resultset = statement.executeQuery("Select jug.nombre,jug.puntos,jueg.fecha\n" +
+                                            "From jugador jug, juego jueg, jugxjueg jujue\n" +
+                                            "Where jug.idJugador = jujue.idJugador and jueg.idJuego = jujue.idJugador\n" +
+                                            "Order by jug.puntos Desc\n" +
+                                            "LIMIT 10");
+             
+             return resultset;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            //close(con);
+        }
+        return rs;
+        
     }
 
 

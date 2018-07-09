@@ -5,33 +5,72 @@
  */
 package pinball;
 
+import Dao.JuegoDao;
+import Dao.JuegoXJugadorDAO;
+import Dao.JugadorDao;
+import Modelo.Jugador;
+import Scenes.MainScreen;
+import Scenes.TopChart;
 import static java.awt.image.ImageObserver.ABORT;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-public class main
-{
-public static void main(String[] args)
-{
-
-JFrame frame = new JFrame();
 
 
-frame.setSize(800,650);
-frame.setResizable(false);
+public class main{
+        
+        
+    public static void main(String[] args){
+        
 
-frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JFrame frame = new JFrame();
 
 
-Pinball panel = new Pinball();
-   
+        frame.setSize(800,650);
+        frame.setResizable(false);
 
-frame.add(panel);
-  while(panel.getLives()>0){
-      frame.setVisible(true);
-  }
-  if(panel.getLives()==0){
-		System.exit(ABORT);
-    } 
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+        Pinball panel = new Pinball();
+        
+        frame.add(panel);
+          while(panel.getLives()>0){
+              frame.setVisible(true);
+          }
+          if(panel.getLives()<=0){
+              Jugador j = new Jugador();
+              j.setPuntos(panel.getPoints());
+              
+              
+              JuegoDao jd2 = new JuegoDao();
+              jd2.insert();
+              
+              
+              JugadorDao jd = new JugadorDao();
+              jd.insert(j);
+
+              
+              JuegoXJugadorDAO jjd = new JuegoXJugadorDAO();
+             jjd.insert(jjd.getLastJugador(), jjd.getLastJuego());
+             
+             frame.setVisible(false);
+              
+              JFrame second = null;
+            try {
+                second = new TopChart();
+            } catch (SQLException ex) {
+                Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+              second.setVisible(true);
+              
+              //System.exit(ABORT);
+            } 
+     
+    
+    
     }
 
 }

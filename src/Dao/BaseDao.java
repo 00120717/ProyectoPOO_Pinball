@@ -50,7 +50,7 @@ public abstract class BaseDao<T> implements DAO<T> {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }finally{
-            close(con);
+            //close(con);
         }
         return listObject;
         
@@ -91,7 +91,7 @@ public abstract class BaseDao<T> implements DAO<T> {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            close(con);
+            //close(con);
         }
         return inserted;
     }
