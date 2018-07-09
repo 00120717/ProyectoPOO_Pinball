@@ -29,28 +29,31 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author MMont
  */
+
+
 public class TopChart extends JFrame{
     
         
-    ButtonGroup existencia = new ButtonGroup();
-    public JTable resultados = new JTable();
+    public JTable table1 = new JTable();
     
-    public JPanel table = new JPanel();
+    public JPanel panel = new JPanel();
+    DefaultTableModel tm = new DefaultTableModel();
     
     private static final int ANCHOC=130,ALTOC=30;
     
-    DefaultTableModel tm = new DefaultTableModel();
+    
 
     public TopChart() throws SQLException {
         super("Top 10");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         Container container = getContentPane();
-        container.add(table);
+        container.add(panel);
         setSize(600,600);
         
-        table.setBounds( 10,10,500,300 );
-        table.add(new JScrollPane(resultados));
+        panel.setBounds( 10,25,500,300 );
+        //panel.add(new JScrollPane(table1));
+        panel.add(new JScrollPane(table1));
         
         
         
@@ -69,6 +72,7 @@ public class TopChart extends JFrame{
             }
         };
         
+        
         tm.addColumn("Nombre");
         tm.addColumn("Puntaje");
         tm.addColumn("Fecha");
@@ -85,9 +89,10 @@ public class TopChart extends JFrame{
         }
        
         
-        resultados.setModel(tm);
+        table1.setModel(tm);
     }
     
     
     
 }
+
