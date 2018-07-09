@@ -25,7 +25,7 @@ public class Pinball extends JPanel {
 	double[] v2d = {0, 0};
 	
 	int points = 0;
-	int lives = 1;
+	int lives = 4;
 	int sides = 13;
 	int stars = 0;
 	double snorm = 400;

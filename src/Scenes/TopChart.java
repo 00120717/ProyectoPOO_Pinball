@@ -42,7 +42,7 @@ public class TopChart extends JFrame{
     DefaultTableModel tm = new DefaultTableModel();
 
     public TopChart() throws SQLException {
-        super("Inventario");
+        super("Top 10");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         Container container = getContentPane();

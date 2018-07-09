@@ -20,29 +20,32 @@ import javax.swing.JPanel;
 
 
 public class main{
-        
+        public static JFrame frame;
         
     public static void main(String[] args){
+        JFrame main = new MainScreen();
+        main.setVisible(true);
         
-
-        JFrame frame = new JFrame();
-
+        frame = new JFrame();
 
         frame.setSize(800,650);
         frame.setResizable(false);
-
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        frame.setVisible(false);
 
         Pinball panel = new Pinball();
         
         frame.add(panel);
-          while(panel.getLives()>0){
-              frame.setVisible(true);
+          
+            while(panel.getLives()>0){
+              //frame.setVisible(true);
           }
+        
+          
           if(panel.getLives()<=0){
               Jugador j = new Jugador();
               j.setPuntos(panel.getPoints());
+              j.setName(MainScreen.txt1.getText());
               
               
               JuegoDao jd2 = new JuegoDao();
@@ -58,6 +61,8 @@ public class main{
              
              frame.setVisible(false);
               
+             
+             
               JFrame second = null;
             try {
                 second = new TopChart();
